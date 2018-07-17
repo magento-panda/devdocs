@@ -203,6 +203,84 @@ Index mode for Indexer Category Products was changed from 'Update on Save' to 'U
 Index mode for Indexer Product Categories was changed from 'Update on Save' to 'Update by Schedule'
 ```
 
+### Display the current dimensions configuration
+To view the current indexer dimensions configuration:
+
+```bash
+bin/magento indexer:show-dimensions-mode [indexer]
+```
+
+Where **`indexer`** is a space-separated list of indexers. Omit `[indexer]` to show all indexer dimensions' modes. For example, to show dimension modes of all indexers:
+
+```bash
+bin/magento indexer:show-dimensions-mode
+```
+
+Sample result:
+
+```
+Product EAV:                                       store
+Product Price:                                     website_and_customer_group
+```
+
+### Configure indexer dimension modes
+To specify the indexer dimension modes configuration:
+
+```bash
+bin/magento indexer:set-dimensions-mode <indexer> <mode>
+```
+
+Where:
+-   **`indexer`** - Is a space-separated list of indexers.  
+-   **`mode`** - Is a dimension mode of indexer. Mode depende on indexer and can be different.
+
+To view the list of indexers that can change dimension modes:
+
+```bash
+bin/magento indexer:set-dimensions-mode
+```
+
+Sample result:
+
+```
+...
+Indexer                                           Available modes
+catalog_product_attribute                         none,store
+catalog_product_price                             none,website,customer_group,website_and_customer_group
+...
+```
+
+Or using --help option:
+
+```bash
+bin/magento indexer:set-dimensions-mode --help
+```
+
+Sample result:
+
+```bash
+Usage:
+  indexer:set-dimensions-mode [<indexer>] [<mode>]
+
+Arguments:
+  indexer               Indexer name [catalog_product_attribute|catalog_product_price]
+  mode                  Indexer dimension modes
+                        catalog_product_attribute      none,store
+                        catalog_product_price          none,website,customer_group,website_and_customer_group
+```
+
+To set dimension mode for indexer, enter:
+
+```bash
+bin/magento indexer:set-dimensions-mode catalog_product_attribute store
+```
+
+Sample result:
+
+```
+Dimensions mode for indexer "Product EAV" was changed from 'none' to 'store'
+```
+
 #### Related topics
 
 * [Manage the cache]({{ page.baseurl }}/config-guide/cli/config-cli-subcommands-cache.html)
