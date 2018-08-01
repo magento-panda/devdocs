@@ -219,7 +219,6 @@ bin/magento indexer:show-dimensions-mode
 Sample result:
 
 ```
-Product EAV:                                       store
 Product Price:                                     website_and_customer_group
 ```
 
@@ -245,7 +244,6 @@ Sample result:
 ```
 ...
 Indexer                                           Available modes
-catalog_product_attribute                         none,store
 catalog_product_price                             none,website,customer_group,website_and_customer_group
 ...
 ```
@@ -265,20 +263,19 @@ Usage:
 Arguments:
   indexer               Indexer name [catalog_product_attribute|catalog_product_price]
   mode                  Indexer dimension modes
-                        catalog_product_attribute      none,store
                         catalog_product_price          none,website,customer_group,website_and_customer_group
 ```
 
 To set dimension mode for indexer, enter:
 
 ```bash
-bin/magento indexer:set-dimensions-mode catalog_product_attribute store
+bin/magento indexer:set-dimensions-mode catalog_product_price website_and_customer_group
 ```
 
 Sample result:
 
 ```
-Dimensions mode for indexer "Product EAV" was changed from 'none' to 'store'
+Dimensions mode for indexer "Product Price" was changed from 'none' to 'website_and_customer_group'
 ```
 
 #### Related topics
